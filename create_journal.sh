@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ -f .env ]; then
+  export $(cat .env | xargs)
+else
+  echo ".envファイルが見つかりません。"
+  exit 1
+fi
+
 # 環境変数から本名を取得
 FULL_NAME=${FULL_NAME}
 
